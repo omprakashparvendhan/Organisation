@@ -1,5 +1,6 @@
 package com.ash.programming.service;
 
+import java.util.Date;
 import java.util.List;
 
 import org.json.JSONArray;
@@ -91,6 +92,23 @@ public class OrganisationServiceImpl implements OrganisationService {
 			return orgResponse;
 		}
 		orgResponse.setStatus("Error in getting the required data from DB");
+		return orgResponse;
+	}
+
+	public Object addEmployee(Employee employee) {
+		if(employee.getEmployeeID()!=null) {
+			employee.setDateOfJoining(new Date());
+			try {
+				orgMapper.createEmployee(employee);
+				orgResponse.setStatus("Success! Employee Added to Organisation.");
+			}
+			catch(Exception e) {
+				orgResponse.setStatus("Error : " + e);
+			}
+		}
+		else {
+			orgResponse.setStatus("Error : Employee ID is missing");
+		}
 		return orgResponse;
 	}
 }

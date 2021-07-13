@@ -7,9 +7,12 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.MediaType;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.PathVariable;
+import org.springframework.web.bind.annotation.PostMapping;
+import org.springframework.web.bind.annotation.RequestBody;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RestController;
 
+import com.ash.programming.dao.vo.Employee;
 import com.ash.programming.response.OrganisationResponse;
 import com.ash.programming.service.OrganisationServiceImpl;
 
@@ -51,5 +54,10 @@ public class OrganisationController {
 			e.printStackTrace();
 		}
 		return orgResponse.getStatus();
+	}
+	
+	@PostMapping(path="/createEmployee", produces=MediaType.APPLICATION_JSON_VALUE, consumes=MediaType.APPLICATION_JSON_VALUE)
+	public Object createEmployee(@RequestBody Employee employee) {
+		return orgService.addEmployee(employee);
 	}
 }

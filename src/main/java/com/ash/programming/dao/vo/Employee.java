@@ -16,6 +16,27 @@ public class Employee {
 	private Address address;
 	private String passportNumber;
 	private String primarySkill;
+	private Integer pastExperience;
+	private Integer compExperience;
+	private Integer salary;
+	public Integer getPastExperience() {
+		return pastExperience;
+	}
+	public void setPastExperience(Integer pastExperience) {
+		this.pastExperience = pastExperience;
+	}
+	public Integer getCompExperience() {
+		return compExperience;
+	}
+	public void setCompExperience(Integer compExperience) {
+		this.compExperience = compExperience;
+	}
+	public Integer getSalary() {
+		return salary;
+	}
+	public void setSalary(Integer salary) {
+		this.salary = salary;
+	}
 	public String getEmployeeID() {
 		return employeeID;
 	}
@@ -78,9 +99,11 @@ public class Employee {
 	}
 	@Override
 	public String toString() {
-		return "Employee [employeeID=" + employeeID + ", employeeName=" + employeeName + ", employeeDepartment="
-				+ employeeDepartment + ", role=" + role + ", dateOfJoining=" + dateOfJoining + ", emailId=" + emailId
-				+ ", personalEmail=" + personalEmail + ", address=" + address + ", passportNumber=" + passportNumber
-				+ ", primarySkill=" + primarySkill + "]";
+		return "Employee [employeeID=" + employeeID + ", employeeName=" + employeeName
+				+ ", employeeDepartment=" + employeeDepartment + ", role=" + role + ", dateOfJoining=" + dateOfJoining
+				+ ", emailId=" + emailId + ", personalEmail=" + personalEmail + ", address=" + address
+				+ ", passportNumber=" + passportNumber + ", primarySkill=" + primarySkill + ", pastExperience="
+				+ pastExperience + ", compExperience=" + compExperience + ", salary=" + salary + "]";
 	}
+	
 }
